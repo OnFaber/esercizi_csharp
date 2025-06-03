@@ -3,7 +3,7 @@
 // e minimo.
 public class EsercizioDue
 {
-    public static void EnsureArrayIsNotEmpty(int[] args)
+    public void EnsureArrayIsNotEmpty(int[] args)
     {
         if (!args.Any())
         {
@@ -11,19 +11,19 @@ public class EsercizioDue
         }
     }
     
-    public static (int Min, int Max) FindMinMax(params int[] args)
+    public (int Min, int Max) FindMinMax(params int[] args)
     {
-        EnsureArrayIsNotEmpty(args);
+        this.EnsureArrayIsNotEmpty(args);
         int min = args.Min();
         int max = args.Max();
         return (min, max);
     }
 
-    public static void Run()
+    public void Run()
     {
         try
         {
-            (int, int) result = FindMinMax(34, 12, 45, 67, 23, 89, 1);
+            (int, int) result = this.FindMinMax(34, 12, 45, 67, 23, 89, 1);
             Console.WriteLine($"Min: {result.Item1}, Max: {result.Item2}");
         }
         catch (ArgumentException ex)
