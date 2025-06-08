@@ -49,12 +49,14 @@ public class EsercizioUno
     /// <summary>
     /// Analizza la frase e stampa il numero di parole, vocali e consonanti.
     /// </summary>
-    public void AnalizzaFrase()
+    public void Run(TextReader? input = null, TextWriter? output = null)
     {
-        Console.WriteLine($"Frase: {_frase}");
-        Console.WriteLine($"Numero di parole: {NumeroParole}");
-        Console.WriteLine($"Numero di vocali: {NumeroVocali}");
-        Console.WriteLine($"Numero di consonanti: {NumeroConsonanti}");
+        output ??= Console.Out;
+        
+        output.WriteLine($"Frase: {_frase}");
+        output.WriteLine($"Numero di parole: {NumeroParole}");
+        output.WriteLine($"Numero di vocali: {NumeroVocali}");
+        output.WriteLine($"Numero di consonanti: {NumeroConsonanti}");
     }
     /// EsercizioUno.cs ends here
 }

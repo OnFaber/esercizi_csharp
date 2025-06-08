@@ -1,7 +1,7 @@
 // Esercizio 2: Trova Max e Min
 // Scrivi un metodo che riceva una lista di numeri interi tramite 'params' e restituisca il valore massimo
 // e minimo.
-public class EsercizioDue
+public class EsercizioDue : IEsercizio
 {
     public void EnsureArrayIsNotEmpty(int[] args)
     {
@@ -19,16 +19,18 @@ public class EsercizioDue
         return (min, max);
     }
 
-    public void Run()
+    public void Run(TextReader? input, TextWriter? output)
     {
+        output ??= Console.Out;
+        
         try
         {
             (int, int) result = this.FindMinMax(34, 12, 45, 67, 23, 89, 1);
-            Console.WriteLine($"Min: {result.Item1}, Max: {result.Item2}");
+            output.WriteLine($"Min: {result.Item1}, Max: {result.Item2}");
         }
         catch (ArgumentException ex)
         {
-            Console.WriteLine(ex.Message);
+            output.WriteLine(ex.Message);
         }
     }
 }
