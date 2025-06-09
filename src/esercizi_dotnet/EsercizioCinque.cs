@@ -1,4 +1,4 @@
-class EsercizioCinque : IEsercizio
+public class EsercizioCinque : IEsercizio
 {
     private readonly int _arraySize;
     private readonly int _minValue;
@@ -18,12 +18,12 @@ class EsercizioCinque : IEsercizio
         _maxValue = maxValue;
     }
 
-    protected virtual void PrintArray(TextWriter output, int[] array)
+    public virtual void PrintArray(TextWriter output, int[] array)
     {
         output.WriteLine("Array: " + string.Join(", ", array));
     }
 
-    protected virtual bool PrintSearchResult(TextWriter output, int index)
+    public virtual bool PrintSearchResult(TextWriter output, int index)
     {
         if (index.Equals(-1))
         {
@@ -38,7 +38,7 @@ class EsercizioCinque : IEsercizio
         }        
     }
 
-    private int[] CreateArray()
+    public int[] CreateArray()
     {
         int[] arr = new int[_arraySize];
         for (int i = 0; i < _arraySize; i++)
@@ -48,7 +48,7 @@ class EsercizioCinque : IEsercizio
         return arr;
     }
 
-    private int[] RemoveDuplicates(int[] arr) =>  arr.Distinct().ToArray();
+    public int[] RemoveDuplicates(int[] arr) =>  arr.Distinct().ToArray();
     public void Run(TextReader? input = null, TextWriter? output = null)
     {
         output ??= Console.Out;
